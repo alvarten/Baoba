@@ -1,66 +1,125 @@
  using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Movimiento : MonoBehaviour
-{ 
-    private Rigidbody2D rb2D;
+{
 
-    [Header("Movimiento")]
-    private float movimientoHorizontal = 0f;
-    [SerializeField] private float velocidadMovimiento = 0f;
-    [SerializeField] private float suavizadoMovimiento = 0f;
+    //Version Alpha
 
-    private Vector3 velocidad = Vector3.zero;
+    //booleanos para el salto
+    public bool canJump, dobleSalto, caerLento;
+    public int salto = 0;
 
-    private bool mirandoDerecha = true;
+    [SerializeField] public float velocidadMovimientoH = 65f;
+    [SerializeField] public float velocidadMovimientoHCaida = 40f;
+    public float velocidadMovHorizontal= 65f;
+    [SerializeField] private float fuerzaSalto = 20f;
+    [SerializeField] private float planeo = 5f;
+    public CambioCuerpo cambioCuerpo;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        movimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadMovimiento;
+        //En caso de ser forma tronco tiene más velocidad de movimiento y salto
 
-        Mover(movimientoHorizontal * Time.deltaTime);
-
-    }
-
-    private void Mover(float mover)
-    {
-        Vector3 velocidadObjetivo = new Vector3(mover, rb2D.velocity.y);
-        rb2D.velocity = Vector3.SmoothDamp(rb2D.velocity, velocidadObjetivo, ref velocidad, suavizadoMovimiento);
-
-        if (mover > 0 && !mirandoDerecha)
+        if (cambioCuerpo.formaTronco)
         {
-            Girar();
-            //girar
+            velocidadMovimientoH = 80f;
+            velocidadMovHorizontal = 80f;
+            fuerzaSalto = 35f;
         }
-        else if (mover < 0 && mirandoDerecha)
+        else if (cambioCuerpo.formaBasico)
         {
-            Girar();
-            //girar
+            Debug.Log("basico");
+            velocidadMovimientoH = 65f;
+            velocidadMovHorizontal = 65f;
+            fuerzaSalto = 20f;
         }
 
 
+        //Movimiento horizontal
+        if (Input.GetKey("left") || Input.GetKey("a"))
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-velocidadMovHorizontal * Time.deltaTime, 0));            
+            gameObject.GetComponent<Animator>().SetBool("moving", true);
+
+            Vector3 escala = transform.localScale;
+            escala.x = -escala.y;
+            transform.localScale = escala;
+
+        }
+
+        if (Input.GetKey("right") || Input.GetKey("d"))
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(velocidadMovHorizontal * Time.deltaTime, 0));
+            gameObject.GetComponent<Animator>().SetBool("moving", true);
+
+            Vector3 escala = transform.localScale;
+            escala.x = escala.y;
+            transform.localScale = escala;
+
+
+        }
+        if (!Input.GetKey("right") && !Input.GetKey("d") && !Input.GetKey("left") && !Input.GetKey("a"))
+        {
+            gameObject.GetComponent<Animator>().SetBool("moving", false);
+        }
+
+
+        //Salto y doble salto
+        if ((Input.GetKeyDown("up") || Input.GetKeyDown("w"))){
+
+
+            
+            if (salto == 1 && dobleSalto && cambioCuerpo.formaBasico)
+            {
+                dobleSalto = false;
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, fuerzaSalto * 1.4f));
+                salto += 1;
+            }
+            if ((Input.GetKey("up") || Input.GetKey("w")) && salto == 2 && cambioCuerpo.formaBasico)
+            {
+                caerLento = true;
+            }
+            if (salto == 0 && canJump)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, fuerzaSalto));
+                salto += 1;                
+            }
+
+            
+        }
+
+        //Planeo
+        if ((Input.GetKey("up") || Input.GetKey("w")) && salto == 2)
+        {            
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.3f;
+            velocidadMovHorizontal = velocidadMovimientoHCaida;
+        }
+        
+        if ((Input.GetKeyUp("up") || Input.GetKeyUp("w")) && salto == 2)
+        {            
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+            velocidadMovHorizontal = velocidadMovimientoH;
+        }
+        
     }
 
-
-    private void Girar()
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        mirandoDerecha = !mirandoDerecha;
-        Vector3 escala = transform.localScale;
-        escala.x *= -1;
-        transform.localScale = escala;
+        if (collision.transform.tag == "ground")
+        {            
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+        }
     }
     
-
-
 }
