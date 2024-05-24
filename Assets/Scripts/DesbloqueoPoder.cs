@@ -5,10 +5,11 @@ using UnityEngine;
 public class DesbloqueoPoder : MonoBehaviour
 {
     public GameObject Jugador;
+    public int poder;
     // Start is called before the first frame update
     void Start()
     {
-        CambioCuerpo controladorCheckpoint = Jugador.GetComponent<CambioCuerpo>();
+        CambioCuerpo jugadorCambio = Jugador.GetComponent<CambioCuerpo>();
     }
 
     // Update is called once per frame
@@ -19,13 +20,20 @@ public class DesbloqueoPoder : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        CambioCuerpo player = FindAnyObjectByType<CambioCuerpo>();
-
+        CambioCuerpo playerCuerpo = FindAnyObjectByType<CambioCuerpo>();
+        Movimiento playerMov = FindAnyObjectByType<Movimiento>();
 
         if (other.gameObject.name == "Jugador")
         {
+            if(poder == 1)
+            {
+                playerCuerpo.BasicoDesbloqueado = true;
+            }
+            if (poder == 2)
+            {
+                playerMov.DobleSaltoDesbloqueado = true;
+            }
 
-            player.BasicoDesbloqueado = true;
         }
     }
 }

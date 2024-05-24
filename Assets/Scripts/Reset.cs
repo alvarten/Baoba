@@ -34,15 +34,27 @@ public class Reset : MonoBehaviour
         }
         if (controladorCheckpoint.pantalla == 2)
         {
-            transformDelPersonaje.position = new Vector3(158.4f, 66f, 0);
+            transformDelPersonaje.position = new Vector3(143.4f, 66f, 0);
         }
         if (controladorCheckpoint.pantalla == 3)
         {
-            transformDelPersonaje.position = new Vector3(286.6f, 106.7f, 0);
+            transformDelPersonaje.position = new Vector3(282.6f, 106.7f, 0);
         }
         if (controladorCheckpoint.pantalla == 4)
         {
-            transformDelPersonaje.position = new Vector3(373.4f, 199.7f, 0);
+            transformDelPersonaje.position = new Vector3(363.4f, 199.7f, 0);
+        }
+        if (controladorCheckpoint.pantalla == 5)
+        {
+            transformDelPersonaje.position = new Vector3(447f, 84f, 0);
+        }
+        if (controladorCheckpoint.pantalla == 6)
+        {
+            transformDelPersonaje.position = new Vector3(223.1f, 242.9f, 0);
+        }
+        if (controladorCheckpoint.pantalla == 7)
+        {
+            transformDelPersonaje.position = new Vector3(252.4f, 3.1f, 0);
         }
 
         //Volvemos a mostrar la pantalla normal

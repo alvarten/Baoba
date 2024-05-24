@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ground
   - tronco
+  - voladora
+  - agua
   layers:
   - Default
   - TransparentFX

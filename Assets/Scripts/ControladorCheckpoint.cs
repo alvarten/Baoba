@@ -26,27 +26,42 @@ public class ControladorCheckpoint : MonoBehaviour
         // Realizar acciones diferentes dependiendo del nombre de la zona
         switch (nombreZona)
         {
-            case "Zona1.1":
+            case "Checkpoint1.1":
 
                 pantalla = 1;
                 Debug.Log("Zona1");
                 break;
-            case "Zona1.2":
+            case "Checkpoint1.2":
 
                 pantalla = 2;
                 Debug.Log("Zona2");
                 break;
-            case "Zona1.3":
+            case "Checkpoint1.3":
 
                 pantalla = 3;
                 
                 break;
-            case "Zona1.4":
+            case "Checkpoint1.4":
 
                 pantalla = 4;
                 
                 break;
-            
+            case "Checkpoint1.5":
+
+                pantalla = 5;
+
+                break;
+            case "Checkpoint1.6":
+
+                pantalla = 6;
+
+                break;
+            case "Checkpoint1.7":
+
+                pantalla = 7;
+
+                break;
+
         }
     }
 
