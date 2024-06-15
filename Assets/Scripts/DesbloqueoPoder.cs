@@ -28,12 +28,19 @@ public class DesbloqueoPoder : MonoBehaviour
             if(poder == 1)
             {
                 playerCuerpo.BasicoDesbloqueado = true;
+                Destroy(gameObject);
             }
             if (poder == 2)
             {
                 playerMov.DobleSaltoDesbloqueado = true;
+                Destroy(gameObject);
             }
-
+            if (poder == 3)
+            {
+                playerMov.caerLentoDesbloqueado = true;
+                Destroy(gameObject);
+            }
+            Destroy(gameObject);
         }
     }
 }

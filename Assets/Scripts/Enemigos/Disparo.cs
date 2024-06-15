@@ -5,6 +5,7 @@ using UnityEngine;
 public class Disparo : MonoBehaviour
 {
     public int dano;
+    public bool explotado = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +23,17 @@ public class Disparo : MonoBehaviour
 
         if (collision.gameObject.name == "Jugador" && controlVida.dañado == false)
         {
+            explotado = true;
             controlVida.vida -= dano;
             controlVida.dañado = true;
             Destroy(gameObject);
         }
         if (collision.transform.tag == "ground")
         {
+            explotado = true;
             Destroy(gameObject);
         }
+        explotado = true;
         Destroy(gameObject);
     }
 }

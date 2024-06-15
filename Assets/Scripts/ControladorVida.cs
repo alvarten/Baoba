@@ -14,7 +14,9 @@ public class ControladorVida : MonoBehaviour
     public bool muerto = false;
     public GameObject panelMuerte;
     public GameObject barraVidaObjeto;
+    public GameObject bossFight1, bossFight2, bossFight3;
     public Image barraVida;
+    public GameObject CamaraAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class ControladorVida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AudioCamara Audio = CamaraAudio.GetComponent<AudioCamara>();
 
         if (dañado && !isCoroutineRunning)
         {
@@ -50,7 +53,18 @@ public class ControladorVida : MonoBehaviour
         {
             Debug.Log("muerto");
             panelMuerte.SetActive(true);
+            //Pauso el juego
+            Time.timeScale = 0;
             barraVidaObjeto.SetActive(false);
+            barraVidaObjeto.SetActive(false);
+            //Desactivo todos los boses
+            bossFight1.SetActive(false);
+            bossFight2.SetActive(false);
+            bossFight3.SetActive(false);
+
+            
+            Audio.track = 2;
+            Audio.cambio = true;
         }
 
         vidaAnterior = vida;

@@ -61,6 +61,11 @@ public class ControladorCheckpoint : MonoBehaviour
                 pantalla = 7;
 
                 break;
+            case "Checkpoint1.8":
+
+                pantalla = 8;
+
+                break;
 
         }
     }

@@ -6,6 +6,7 @@ public class MovHorizontal : MonoBehaviour
 {
     public float velocidadMovHorizontal;
     private float velocidad;
+    public bool turn = false;
     public Vector3 izquierda, derecha;
     private Vector3 movimiento = new Vector3(1f,0f,0f);
 
@@ -21,10 +22,22 @@ public class MovHorizontal : MonoBehaviour
         if (transform.position.x > derecha.x)
         {
             velocidad = -velocidadMovHorizontal;
+            if (turn)
+            {
+                Vector3 escala = transform.localScale;
+                escala.x = escala.y;
+                transform.localScale = escala;
+            }
         }
         else if (transform.position.x < izquierda.x)
         {
             velocidad = velocidadMovHorizontal;
+            if (turn)
+            {
+                Vector3 escala = transform.localScale;
+                escala.x = -escala.y;
+                transform.localScale = escala;
+            }
         }
 
         transform.position += movimiento * velocidad * Time.deltaTime;

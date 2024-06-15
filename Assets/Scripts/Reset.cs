@@ -56,6 +56,10 @@ public class Reset : MonoBehaviour
         {
             transformDelPersonaje.position = new Vector3(252.4f, 3.1f, 0);
         }
+        if (controladorCheckpoint.pantalla == 8)
+        {
+            transformDelPersonaje.position = new Vector3(-95.8f, 98.6f, 0);
+        }
 
         //Volvemos a mostrar la pantalla normal
         barraVidaObjeto.SetActive(true);

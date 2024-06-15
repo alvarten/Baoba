@@ -95,7 +95,301 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f5437707909be419359b2a574bf3be
+      internalID: 1822297067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c50bf39dc55f1e4ba4dae6c5f3ad809
+      internalID: -2020622091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82ac103f0e85de4c85b9f48bf0f22e6
+      internalID: -1609230741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75f9af05ea72f74f9af29c56334df59
+      internalID: -2113314962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf17d1f553617dd48a7922bf2b383e6e
+      internalID: -781830512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a892d3cf81368d40b6d633a7e2abca7
+      internalID: 2118312968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394102ddf0db0ab4894cae75949a1ff9
+      internalID: -369330359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf9a75dc7aff5648aa8b26aabec5124
+      internalID: 2136381263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e27f7622f5a6eb47a879dc718aec10b
+      internalID: 1523996814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7765724a75dc9ab439a84c81114fa432
+      internalID: 1270250018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0686be2af079a214fa34c0ebc4df912c
+      internalID: 648106448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a204f3905abd747b619d92076195fb
+      internalID: -1213088482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d19acfbc5c25ca4988fe74fe835b0b2
+      internalID: -781902459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: baoba_enemigo_plataforma_wakeup-Sheet_64x64_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7062159c17d2c4a928878ecfc8deb9
+      internalID: 1988712025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +400,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_0: 1822297067
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_1: -2020622091
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_10: 648106448
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_11: -1213088482
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_12: -781902459
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_13: 1988712025
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_2: -1609230741
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_3: -2113314962
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_4: -781830512
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_5: 2118312968
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_6: -369330359
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_7: 2136381263
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_8: 1523996814
+      baoba_enemigo_plataforma_wakeup-Sheet_64x64_9: 1270250018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

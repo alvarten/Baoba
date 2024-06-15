@@ -12,11 +12,11 @@ public class Movimiento : MonoBehaviour
     //Version Beta
 
     //booleanos para el salto
-    public bool canJump, dobleSalto, caerLento, DobleSaltoDesbloqueado = false;
+    public bool canJump, dobleSalto, caerLento, caerLentoDesbloqueado = false, DobleSaltoDesbloqueado = false;
     public int salto = 0;
     public float velocidadMovVertical = 20f;
     public float velocidad = 65f;
-    private bool isCoroutineRunning = false;
+    //private bool isCoroutineRunning = false;
     public bool canDash = true;
     public float dashCool = 10f;
     [SerializeField] public float velocidadMovimientoH = 65f;
@@ -27,9 +27,14 @@ public class Movimiento : MonoBehaviour
     [SerializeField] private float planeo = 1.0f;
     public CambioCuerpo cambioCuerpo;
 
+    //Parte de audio de pisadas
+    public AudioClip audioClip; // Clip de audio a reproducir
+    private AudioSource audioSource;
     void Start()
     {
-
+        //Configuro el audio de las pisadas
+        audioSource = GetComponent<AudioSource>();        
+        audioSource.clip = audioClip;
     }
 
     // Update is called once per frame
@@ -75,6 +80,11 @@ public class Movimiento : MonoBehaviour
             Vector3 escala = transform.localScale;
             escala.x = -escala.y;
             transform.localScale = escala;
+            //Que suenen las pisadas
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
 
         }
         //Derecha
@@ -86,12 +96,21 @@ public class Movimiento : MonoBehaviour
             Vector3 escala = transform.localScale;
             escala.x = escala.y;
             transform.localScale = escala;
-
-
+            //Que suenen las pisadas
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
         //Idle
         if (!Input.GetKey("right") && !Input.GetKey("d") && !Input.GetKey("left") && !Input.GetKey("a"))
         {
+            //Se para el audio de pisadas
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+            
             gameObject.GetComponent<Animator>().SetBool("moving", false);
         }
 
@@ -149,13 +168,13 @@ public class Movimiento : MonoBehaviour
         }
         //Baoba
         //Pulsado
-        if ((Input.GetKey("up") || Input.GetKey("w")) && salto == 2 && cambioCuerpo.formaBasico && DobleSaltoDesbloqueado)
+        if ((Input.GetKey("up") || Input.GetKey("w")) && salto == 2 && cambioCuerpo.formaBasico && caerLentoDesbloqueado)
         {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = planeo;
             velocidadMovHorizontal = velocidadMovimientoHCaida;
         }
         //Sin Pulsar
-        if ((Input.GetKeyUp("up") || Input.GetKeyUp("w")) && salto == 2 && cambioCuerpo.formaBasico && DobleSaltoDesbloqueado)
+        if ((Input.GetKeyUp("up") || Input.GetKeyUp("w")) && salto == 2 && cambioCuerpo.formaBasico && caerLentoDesbloqueado)
         {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 2.3f;
             velocidadMovHorizontal = velocidadMovimientoH;
@@ -215,20 +234,32 @@ public class Movimiento : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(fuerzaDash * escala.x, 0f));
 
         //llamamos a la espera
+        StartCoroutine(DashAnimacionCooldown());
         StartCoroutine(DashCooldown());
     }
+
     IEnumerator DashCooldown()
     {
         canDash = false;        
-
         // Espera el tiempo especificado
-        yield return new WaitForSeconds(dashCool);
+        yield return new WaitForSeconds(dashCool -1);
 
         // Permite que la acción se pueda realizar nuevamente
         canDash = true;
         gameObject.GetComponent<Animator>().SetBool("dash", false);
-
         
     }
+
+    //Cooldown de la animacion
+    IEnumerator DashAnimacionCooldown()
+    {       
+        
+        // Espera el tiempo especificado
+        yield return new WaitForSeconds(0.1f);
+        // Permite que la acción se pueda realizar nuevamente        
+        gameObject.GetComponent<Animator>().SetBool("dash", false);
+
+    }
+
 
 }

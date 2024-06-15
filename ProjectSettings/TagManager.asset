@@ -8,6 +8,10 @@ TagManager:
   - tronco
   - voladora
   - agua
+  - higo
+  - burbuja
+  - salirAgua
+  - BolaFuegoHor
   layers:
   - Default
   - TransparentFX

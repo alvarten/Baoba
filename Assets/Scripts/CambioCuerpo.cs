@@ -12,7 +12,7 @@ public class CambioCuerpo : MonoBehaviour
     public bool formaBasico = false;
     public bool BasicoDesbloqueado = false;
 
-
+    private bool salirAgua = true;
     private bool contactoVoladora = false;
     private bool contactoAgua = false;
     private bool contactoTronco = false;
@@ -83,6 +83,7 @@ public class CambioCuerpo : MonoBehaviour
                 gameObject.GetComponent<Animator>().SetBool("baoba", false);
 
             }
+            //De forma baoba pasa a agua
             else if (formaBasico && contactoAgua)
             {
 
@@ -90,7 +91,8 @@ public class CambioCuerpo : MonoBehaviour
                 collider2d.offset = new Vector2(-0.31f, -0.28f);
                 groundCheck.size = new Vector2(1.3f, 0.76f);
                 groundCheck.offset = new Vector2(-0.07f, -1.78f);
-
+                transform.position += (new Vector3(0, -5f, 0));
+                salirAgua = false;
                 Debug.Log("agua");
                 Destroy(instanciaPrefabAgua, .1f);
                 formaAgua = true;
@@ -100,7 +102,7 @@ public class CambioCuerpo : MonoBehaviour
 
             }
             //De forma tronco, voladora o agua pasa a baoba
-            else if (!formaBasico && BasicoDesbloqueado)
+            else if (!formaBasico && BasicoDesbloqueado && salirAgua)
             {
                 if (formaTronco)
                 {
@@ -115,10 +117,12 @@ public class CambioCuerpo : MonoBehaviour
                     gameObject.GetComponent<Animator>().SetBool("baoba", true);
                 }
                 else if (formaAgua)
-                {
+                {                    
                     instanciaPrefabAgua = Instantiate(aguaPrefab, transform.position + new Vector3(0, 0f, 0), Quaternion.identity);
+                    transform.position += (new Vector3(0, 4f, 0));
                     gameObject.GetComponent<Animator>().SetBool("agua", false);
                     gameObject.GetComponent<Animator>().SetBool("baoba", true);
+                    salirAgua = true;
                 }
 
                 //Configuración de forma basica
@@ -138,6 +142,7 @@ public class CambioCuerpo : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Verificar si el otro Collider es de un tipo específico y si es un trigger
+        //PAra los distintos cuerpos
         if (other.CompareTag("tronco") && other.isTrigger)
         {
             contactoTronco = true;
@@ -152,6 +157,11 @@ public class CambioCuerpo : MonoBehaviour
         {
             contactoAgua = true;
             Debug.Log("Dentro agua");
+        }
+        //Para poder salir del agua
+        else if (other.CompareTag("salirAgua") && other.isTrigger)
+        {
+            salirAgua = true;
         }
 
     }
@@ -173,6 +183,10 @@ public class CambioCuerpo : MonoBehaviour
             contactoAgua = false;
             Debug.Log("Fuera agua");
         }
-
+        //Para poder salir del agua
+        else if (other.CompareTag("salirAgua") && other.isTrigger)
+        {
+            salirAgua = false;
+        }
     }
 }
